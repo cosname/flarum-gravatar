@@ -1,34 +1,34 @@
 {
-	"name": "cosname/flarum-gravatar",
-	"description": "Flarum plugin to display gravatar if no avatar was uploaded by user.",
-	"type": "flarum-extension",
-	"keywords": ["gravatar", "avatar"],
-	"license": "MIT",
-	"authors": [
+    "name": "cosname/flarum-gravatar",
+    "description": "Flarum plugin to display user avatar via Gravatar.",
+    "type": "flarum-extension",
+    "keywords": ["gravatar", "avatar"],
+    "license": "MIT",
+    "authors": [
         {
             "name": "Yixuan Qiu",
             "email": "yixuan.qiu@cos.name"
         }
-	],
-	"require": {
-		"flarum/core": "^0.1.0-beta.6"
-	},
-	"autoload": {
-		"psr-4": {
-			"Cosname\\": "src/"
-		}
-	},
-	"extra": {
-		"flarum-extension": {
-			"title": "Gravatar",
-			"icon": {
-				"image": "icon.png",
+    ],
+    "require": {
+        "flarum/core": "^0.1.0-beta.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "Cosname\\": "src/"
+        }
+    },
+    "extra": {
+        "flarum-extension": {
+            "title": "Gravatar",
+            "icon": {
+                "image": "icon.png",
                 "backgroundSize": "contain",
                 "backgroundRepeat": "no-repeat",
                 "backgroundPosition": "center",
                 "backgroundColor": "#ddd",
                 "color": "#fff"
-			}
-		}
-	}
+            }
+        }
+    }
 }
