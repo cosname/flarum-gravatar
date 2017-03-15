@@ -16,10 +16,10 @@ class AddGravatarAssets
      *
      * @param Dispatcher $events
      */
-	public function subscribe(Dispatcher $events)
+    public function subscribe(Dispatcher $events)
     {
-		$events->listen(ConfigureWebApp::class, [$this, 'addForumAssets']);
-	}
+        $events->listen(ConfigureWebApp::class, [$this, 'addForumAssets']);
+    }
 
     /**
      * Add forum assets.
@@ -28,20 +28,11 @@ class AddGravatarAssets
      */
     public function addForumAssets(ConfigureWebApp $event)
     {
-		if ($event->isForum()) {
-			$event->addAssets([
-				__DIR__ . '/../../js/forum/dist/extension.js'
-			]);
-			$event->addBootstrapper('cosname/gravatar/main');
-		}
-
-        /*
-		if ($event->isAdmin()) {
-			$event->addAssets([
-				__DIR__ . '/../../js/admin/dist/extension.js'
-			]);
-			$event->addBootstrapper('cosname/gravatar/main');
-		}
-        */
-	}
+        if ($event->isForum()) {
+            $event->addAssets([
+                __DIR__ . '/../../js/forum/dist/extension.js'
+            ]);
+            $event->addBootstrapper('cosname/gravatar/main');
+        }
+    }
 }

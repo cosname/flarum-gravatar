@@ -9,6 +9,10 @@ use Flarum\Api\Serializer\UserBasicSerializer;
 use Flarum\Event\PrepareApiAttributes;
 use Illuminate\Contracts\Events\Dispatcher;
 
+// In the discussion list, by default the JS frontend only contains the 'username'
+// and 'avatarUrl' attributes of users. Therefore, we cannot calculate email
+// hash to obtain the Gravatar link. This class adds the 'email' attribute
+// to the user so that we can get access to the email address in the frontend.
 class AddUserEmailAttributes
 {
     /**
@@ -16,13 +20,13 @@ class AddUserEmailAttributes
      *
      * @param Dispatcher $events
      */
-	public function subscribe(Dispatcher $events)
+    public function subscribe(Dispatcher $events)
     {
-		$events->listen(prepareApiAttributes::class, [$this, 'addEmailAttributes']);
-	}
+        $events->listen(PrepareApiAttributes::class, [$this, 'addEmailAttributes']);
+    }
 
     /**
-     * Add forum assets.
+     * Add the 'email' attribute to the user.
      *
      * @param PrepareApiAttributes $event
      */
@@ -31,5 +35,5 @@ class AddUserEmailAttributes
         if ($event->isSerializer(UserBasicSerializer::class)) {
             $event->attributes['email'] = $event->model->email;
         }
-	}
+    }
 }
