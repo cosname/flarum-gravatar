@@ -31,7 +31,8 @@ app.initializers.add('cosname/gravatar', function() {
         return user.attribute('avatarUrl');
     };
 
-    /*
+    // Since the avatarUrl is now linking to Gravatar,
+    // we need to avoid cross origin errors
     User.prototype.calculateAvatarColor = function() {
         const image = new Image();
         const user = this;
@@ -46,6 +47,5 @@ app.initializers.add('cosname/gravatar', function() {
         image.crossOrigin = 'Anonymous';
         image.src = this.avatarUrl();
     };
-    */
 
 });

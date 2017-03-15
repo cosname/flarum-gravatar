@@ -309,12 +309,14 @@ System.register('cosname/gravatar/main', ['flarum/models/User', 'cosname/gravata
                     return user.attribute('avatarUrl');
                 };
 
-                /*
-                User.prototype.calculateAvatarColor = function() {
-                    const image = new Image();
-                    const user = this;
-                     image.onload = function() {
-                        const colorThief = new ColorThief();
+                // Since the avatarUrl is now linking to Gravatar,
+                // we need to avoid cross origin errors
+                User.prototype.calculateAvatarColor = function () {
+                    var image = new Image();
+                    var user = this;
+
+                    image.onload = function () {
+                        var colorThief = new ColorThief();
                         user.avatarColor = colorThief.getColor(this);
                         user.freshness = new Date();
                         m.redraw();
@@ -323,7 +325,6 @@ System.register('cosname/gravatar/main', ['flarum/models/User', 'cosname/gravata
                     image.crossOrigin = 'Anonymous';
                     image.src = this.avatarUrl();
                 };
-                */
             });
         }
     };
