@@ -284,7 +284,7 @@ System.register('cosname/gravatar/main', ['flarum/models/User', 'cosname/gravata
             * Copyright (c) 2017 Yixuan Qiu
             */
 
-            app.initializers.add('cosname/gravatar', function () {
+            app.initializers.add('cosname-gravatar', function () {
 
                 // Modify the function that returns the avatar URL
                 User.prototype.avatarUrl = function () {

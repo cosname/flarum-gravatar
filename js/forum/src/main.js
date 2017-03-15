@@ -6,7 +6,7 @@
 import User from 'flarum/models/User';
 import md5 from 'cosname/gravatar/helpers/md5';
 
-app.initializers.add('cosname/gravatar', function() {
+app.initializers.add('cosname-gravatar', function() {
 
     // Modify the function that returns the avatar URL
     User.prototype.avatarUrl = function() {
