@@ -2,7 +2,10 @@
     "name": "cosname/flarum-gravatar",
     "description": "Flarum plugin to display user avatar via Gravatar.",
     "type": "flarum-extension",
-    "keywords": ["gravatar", "avatar"],
+    "keywords": [
+        "gravatar",
+        "avatar"
+    ],
     "license": "MIT",
     "authors": [
         {
