@@ -1,12 +1,12 @@
 <?php
 /*
-* Copyright (c) 2017 Yixuan Qiu
+* Copyright (c) 2017-2018 Yixuan Qiu
 */
 
 namespace Cosname\Listener;
 
-use Flarum\Api\Serializer\UserBasicSerializer;
-use Flarum\Event\PrepareApiAttributes;
+use Flarum\Api\Serializer\BasicUserSerializer;
+use Flarum\Api\Event\Serializing;
 use Illuminate\Contracts\Events\Dispatcher;
 
 // In the discussion list, by default the JS frontend only contains the 'username'
@@ -22,17 +22,17 @@ class AddUserEmailAttributes
      */
     public function subscribe(Dispatcher $events)
     {
-        $events->listen(PrepareApiAttributes::class, [$this, 'addEmailAttributes']);
+        $events->listen(Serializing::class, [$this, 'addEmailAttributes']);
     }
 
     /**
      * Add the 'email' attribute to the user.
      *
-     * @param PrepareApiAttributes $event
+     * @param Serializing $event
      */
-    public function addEmailAttributes(PrepareApiAttributes $event)
+    public function addEmailAttributes(Serializing $event)
     {
-        if ($event->isSerializer(UserBasicSerializer::class)) {
+        if ($event->isSerializer(BasicUserSerializer::class)) {
             $event->attributes['email'] = $event->model->email;
         }
     }

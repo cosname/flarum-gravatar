@@ -4,7 +4,7 @@
 */
 
 import User from 'flarum/models/User';
-import md5 from 'cosname/gravatar/helpers/md5';
+import md5 from './helpers/md5';
 
 app.initializers.add('cosname-gravatar', function() {
 
